@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="程序的机器级表示GCC语言编译器以汇编代码的形式产生输出，汇编代码给出程序中的每一条指令，然后GCC调用编译器和连接器，根据汇编代码生成可执行的机器代码。">
+  <meta name="description" content="冯.诺依曼模型寻址空间对应32位，64位操作系统的说法，也就是可以有$2^{32}$和$2^{64}$个地址（位置）范围 寻址模式是指定义操作数位置的一种机制，对指令来说需要两部分1.操作数，2.操作方法，操作数在指令、寄存器或者内存中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS">
-<meta property="og:url" content="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/OS/index.html">
+<meta property="og:title" content="CS">
+<meta property="og:url" content="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/CS/index.html">
 <meta property="og:site_name" content="一叶秋秋秋的博客">
-<meta property="og:description" content="程序的机器级表示GCC语言编译器以汇编代码的形式产生输出，汇编代码给出程序中的每一条指令，然后GCC调用编译器和连接器，根据汇编代码生成可执行的机器代码。">
+<meta property="og:description" content="冯.诺依曼模型寻址空间对应32位，64位操作系统的说法，也就是可以有$2^{32}$和$2^{64}$个地址（位置）范围 寻址模式是指定义操作数位置的一种机制，对指令来说需要两部分1.操作数，2.操作方法，操作数在指令、寄存器或者内存中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-19T16:16:38.000Z">
-<meta property="article:modified_time" content="2020-08-20T14:53:09.426Z">
+<meta property="article:modified_time" content="2020-08-20T15:49:22.615Z">
 <meta property="article:author" content="一叶秋秋秋">
-<meta property="article:tag" content="深入理解计算机系统">
 <meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="计算机系统概论">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/OS/">
+<link rel="canonical" href="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/CS/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>OS | 一叶秋秋秋的博客</title>
+  <title>CS | 一叶秋秋秋的博客</title>
   
 
 
@@ -189,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/OS/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/CS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/me.jpg">
@@ -202,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OS
+          CS
         </h1>
 
         <div class="post-meta">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-20 00:16:38 / 修改时间：22:53:09" itemprop="dateCreated datePublished" datetime="2020-08-20T00:16:38+08:00">2020-08-20</time>
+              <time title="创建时间：2020-08-20 00:16:38 / 修改时间：23:49:22" itemprop="dateCreated datePublished" datetime="2020-08-20T00:16:38+08:00">2020-08-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +227,7 @@
             </span>
 
           
-            <span id="/2020/08/20/OS/" class="post-meta-item leancloud_visitors" data-flag-title="OS" title="阅读次数">
+            <span id="/2020/08/20/CS/" class="post-meta-item leancloud_visitors" data-flag-title="CS" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -244,9 +244,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="程序的机器级表示"><a href="#程序的机器级表示" class="headerlink" title="程序的机器级表示"></a>程序的机器级表示</h1><p>GCC语言编译器以汇编代码的形式产生输出，汇编代码给出程序中的<strong>每一条指令</strong>，然后GCC调用编译器和连接器，根据汇编代码生成可执行的机器代码。<a id="more"></a></p>
-<p>用高级语言编写的程序可以在不同的机器编译和执行，而汇编代码则是与特定机器密切相关</p>
-<p>程序如何维护一个运行栈来支持过程间数据和控制的传递（函数调用），以及局部变量的储存</p>
+        <h1 id="冯-诺依曼模型"><a href="#冯-诺依曼模型" class="headerlink" title="冯.诺依曼模型"></a>冯.诺依曼模型</h1><p>寻址空间对应32位，64位操作系统的说法，也就是可以有$2^{32}$和$2^{64}$个地址（位置）范围</p>
+<p>寻址模式是指定义操作数位置的一种机制，对指令来说需要两部分1.操作数，2.操作方法，操作数在指令、寄存器或者内存中</p>
 
     </div>
 
@@ -256,8 +255,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-bars"></i> 深入理解计算机系统</a>
               <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-bars"></i> 读书笔记</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/" rel="tag"><i class="fa fa-bars"></i> 计算机系统概论</a>
           </div>
 
         
@@ -266,12 +265,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/20/CS/" rel="prev" title="CS">
-      <i class="fa fa-chevron-left"></i> CS
+    <a href="/2020/08/19/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/20/Linux/" rel="next" title="Linux">
-      Linux <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/20/OS/" rel="next" title="OS">
+      OS <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -331,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.</span> <span class="nav-text">程序的机器级表示</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%AF-%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">冯.诺依曼模型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -534,6 +533,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
