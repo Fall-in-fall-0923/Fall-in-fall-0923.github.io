@@ -351,6 +351,252 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/10/%E7%A7%8B%E4%BD%A0%E8%A6%81%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E5%91%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="一叶秋秋秋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶秋秋秋的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/10/%E7%A7%8B%E4%BD%A0%E8%A6%81%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E5%91%80/" class="post-title-link" itemprop="url">秋你要准备面试呀</a>
+        </h2>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-10 16:15:19" itemprop="dateCreated datePublished" datetime="2020-09-10T16:15:19+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-14 20:30:54" itemprop="dateModified" datetime="2020-09-14T20:30:54+08:00">2020-09-14</time>
+              </span>
+
+          
+            <span id="/2020/09/10/%E7%A7%8B%E4%BD%A0%E8%A6%81%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E5%91%80/" class="post-meta-item leancloud_visitors" data-flag-title="秋你要准备面试呀" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="9月10日"><a href="#9月10日" class="headerlink" title="9月10日"></a>9月10日</h1><ul>
+<li><p>有哪些寻址方式，都简述一下，int* p用的是什么寻址方式。<br>  寻址模式是指定义操作数位置（或者来源）的一种机制。操作数可能存在的地方无非是一下三种之一：内存、寄存器、和指令本身。<br>  5种寻址模式：立即数、寄存器以及三种内存寻址模式，即相对寻址、间接寻址、基址偏移。</p>
+<p>  所有指令可以分为三类：运算、数据搬移和控制。运算类指令负责处理信息；数据搬移类指令则负责在内存和寄存器之间以及内存/寄存器和输入/输出设备之间转移信息；控制类指令负责改变指令执行的顺序。<br>  指令本身又由操作码和操作数两部分组成。LC-3的指令长度是16位。</p>
+<p>  读写锁 互斥量 条件变量 信号量</p>
+</li>
+</ul>
+<p>互斥锁是一种sleep_waiting的锁，如果无法获得锁的话，线程会阻塞。</p>
+<p>自旋锁是一种busy_waiting的锁，如果无法获得锁的话，会一直循环申请，直到拿到锁，比较耗费cpu。</p>
+<p>读写锁的准确含义是：一种读共享，写独占的锁。</p>
+<ul>
+<li>当读写锁被加了写锁时，其他线程对该锁加读锁或者写锁都会独占。</li>
+<li>当读写锁被加了读锁时，其他线程对该锁加写锁会阻塞，加读锁会成功。</li>
+</ul>
+<p>下半部的任务就是执行与中断处理密切相关但中断处理程序本身不执行的工作。我们希望中断处理程序尽可能快地返回。中断处理程序几乎都需要通过操作硬件对中断地到达进行确认，有时它还会从硬件拷贝数据，其他所有任务都由下半部执行。比如上半部拷贝数据到内存，下半部种处理它们。</p>
+<h1 id="获取页"><a href="#获取页" class="headerlink" title="获取页"></a>获取页</h1><p>内核提供一种请求内存的底层机制，所有接口都是以<strong>页</strong>为单位分配内存。</p>
+<p>CFS的出发点基于一个简单的理念：进程调度的效果应如同系统具备一个理想中的完美多任务处理器。<br>CFS做法是允许每个进程运行一段时间、循环轮转、<strong>选择运行最少的进程</strong>作为下一个运行进程。nice值被作为进程获得的处理器运行比的权重。</p>
+<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><p>把数据转换称JSON文本格式，网页代码把JSON转化为内部的数据结构使用。</p>
+<ul>
+<li>把JSON文本解析为一个树状数据结构。</li>
+<li>提供接口访问该数据结构。</li>
+<li>把数据结构转化为JSON。</li>
+</ul>
+<h1 id="内存碎片"><a href="#内存碎片" class="headerlink" title="内存碎片"></a>内存碎片</h1><p>brk分配的内存需要等到高地址内存释放以后才能释放，这就是内存碎片产生的原因，什么时候紧缩看下面，而mmp分配的内存可以单独释放。</p>
+<h1 id="设备与模块"><a href="#设备与模块" class="headerlink" title="设备与模块"></a>设备与模块</h1><p>Linux系统下，设备被分为以下三种：</p>
+<ul>
+<li>块设备</li>
+<li>字符设备</li>
+<li>网络设备</li>
+</ul>
+<p>块设备可寻址，字符设备不可寻址。<br>Linux内核是模块化组成的，它允许内核在运行时动态地向其中插入或从中删除代码。这些代码组成一个单独地二进制镜像，即可装载内核模块。</p>
+<p>载入模块最简单的方法是通过insmod，insmod程序步执行任何依赖性分析或进一步的错误检查。<br>modprobe会自动加载任何它所依赖的模块。<br>卸载： modprobe -r module</p>
+<h1 id="设备模型"><a href="#设备模型" class="headerlink" title="设备模型"></a>设备模型</h1><p>可以沿设备树的叶子向其根的方向一次遍历，保证正确顺序关掉设备——内核需要一棵设备树。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="一叶秋秋秋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶秋秋秋的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">每日小笔记</a>
+        </h2>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-07 13:59:40" itemprop="dateCreated datePublished" datetime="2020-09-07T13:59:40+08:00">2020-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-10 11:07:38" itemprop="dateModified" datetime="2020-09-10T11:07:38+08:00">2020-09-10</time>
+              </span>
+
+          
+            <span id="/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="每日小笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>是不是临界区越小越好，临界区不要涉及太多的函数调用</p>
+<p>mutex互斥量是一个类对象，把它理解为一把锁。<br>std::lock_guard类模板代替lock()和unlock()。</p>
+<p>std::async()提供一个接口，能让一段技能或者说一个callable object若是可能的话在后台运行，成为一个独立线程。</p>
+<p>Class future&lt;&gt;允许你等待线程结束并获取其结果。</p>
+<p>多个线程并发处理相同的数据而又不曾同步化，那么唯一安全的情况就是：所有线程只读取数据。</p>
+<p>并发过程中会出现什么样的问题：</p>
+<ul>
+<li><strong>（未同步化数据访问）</strong>：并行运行的两个线程读和写同一笔数据，不知道哪一个语句先来。</li>
+<li><strong>（写至半途的数据）</strong>：某个线程正在读数据，另一个线程改动它，于是读取中的线程甚至可能读到改了一半的数据，读到一个半新半旧的旧值。</li>
+<li><strong>（重新安排的语句）</strong>：语句和操作有可能被重新安排次序，也许对于每一个单线程正确，但对于多个线程的组合却破坏了预期的行为。</li>
+</ul>
+<p>**除非另有说明，C++标准库提供的函数通常不支持“写或读”动作与另一个“写”动作（写至同一笔数据）并发执行。</p>
+<p>并发问题中，对数据的修改是很敏感的。<br><strong>重新安排语句的前提是，如果是在单线程下，不影响该线程的行为。</strong><br>默认情况下，C++编译器应该有能力生成高度优化代码，而某些优化行为需要重新安排语句。</p>
+<p>解决问题所需要的性质：<br><strong>Atomicity（不可切割性）</strong>：其行为是独占的，排他的，无任何打断。<br><strong>Order（次序）</strong>：需要一些方法保证”具体指定语句“的次序。</p>
+<ul>
+<li>你可以使用condition variable有效地令某线程等待若干”被另一线程控制的“判断式称为true。这有助于应付多线程间的次序，允许一或多个线程处理其他一或多个线程所提供的数据或状态。</li>
+<li>可以使用atomic data type确保每次对变量或对象的访问动作都是不可切割的——只要atomic type上的操作次序保证稳定。</li>
+</ul>
+<p><strong>递归Lock</strong>，借着recursive_mutex，这个mutex允许同一线程多次锁定，并在最近一次（last)相应的unlock()时释放lock。——调用会不会重新占用锁。<br><strong>尝试性的Lock以及带时间性的Lock</strong><br>try_lock()==false;<br><strong>处理多个Lock</strong><br>全局函数std::lock()会锁住它收到的所有mutex，而且<strong>阻塞直到</strong>所有mutex都被锁定或者抛出异常，如果是后者，已被锁的会被解锁。使用lock_guard时，并以adopt_lock作为初始化的第二实参，确保任何情况下这些mutex在离开作用域时会被解锁。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::mutex m2;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">std</span>::lock(mi,m2);<span class="comment">//先阻塞到获得锁</span></span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(m1,<span class="built_in">std</span>::adopt)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(m2,<span class="built_in">std</span>::adopt)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以此相同方式你可以尝试”取得多个lock“且”若并非所有lock都可用也不至于造成阻塞“。全局函数std::try_lock()会在取得所有lock情况下返回-1；否则返回第一个失败的lock的索引，且如果这样的话所有成功的lock会又被unlocked。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::mutex m2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> idx=<span class="built_in">std</span>::try_lock(m1,m2);</span><br><span class="line"><span class="keyword">if</span>(index&lt;<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockm1</span><span class="params">(m1,<span class="built_in">std</span>::adopt_lock)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockm2</span> <span class="params">(m2,<span class="built_in">std</span>::adopt_lock)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>std::lock()和std::try_lock()要与lock_guard\<std::mutex\> lg(m1,std::adopt_lock)一起使用。</p>
+<p>还提供class unique_lock&lt;&gt;，它对付mutex更有弹性。它又允许明确写出”何时“以及”如何“锁定或者解锁mutex.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defer_lock</td>
+<td>不获得互斥的所有权</td>
+</tr>
+<tr>
+<td>try_to_lock</td>
+<td>尝试获得互斥的所有权而不阻塞</td>
+</tr>
+<tr>
+<td>adopt_lock</td>
+<td>假设调用方线程已拥有互斥的所有权</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>此外，class unique_lock&lt;&gt;提供release()用来释放mutex，或是将其mutex拥有权转移给另一个lock。</p>
+<p>对于”某一满足条件“的轮询通常不是好办法。更好的做法是使用condition variable（条件变量）。</p>
+<p>C++标准库提供一下mutex Class：</p>
+<ul>
+<li><strong>Class std::mutex</strong>,同一时间只可被一个线程锁定。如果它被锁定，任何其他lock()都会阻塞，直到这个mutex再次可用，且try_lock()会失败。</li>
+<li><strong>Class std::recursive_mutex</strong>，允许在同一时间多次被同一线程获得其lock。其典型应用是：函数捕获一个lock并调用另一函数而后者再次捕获相同的lock。</li>
+<li><strong>Class std::timed_mutex</strong> 额外允许你传递一个时间段或时间点，用来定义多长时间内它可以尝试捕捉一个lock。为此它提供了try_lock_for()和try_lock_until();</li>
+<li><strong>Class std::recursive_timed_mutex</strong></li>
+</ul>
+<h1 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h1><p>Future允许你停下来，直到另一个线程提供某笔数据或直到另一线程结束。然而future从某线程传递数据到另一线程只能一次。事实上future的主要目的是处理线程的返回值或异常。<br><strong>条件变量</strong>它可用来同步化线程之间的数据流逻辑依赖关系。它是个变量，借由他，一个线程可以唤醒一或多个其他等待中的线程。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.notify_one()</span><br><span class="line">.notify_all()</span><br><span class="line">.wait(mutex);</span><br><span class="line"><span class="comment">//condition variable的消费者总是在”被锁住的mutex“基础上操作。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::condition_variable cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">ul</span><span class="params">(m1)</span></span>;</span><br><span class="line">cv.wait(ul,[]&#123;<span class="keyword">return</span> doflag;&#125;);  <span class="comment">//lambda表达式防止假醒</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Atomic"><a href="#Atomic" class="headerlink" title="Atomic"></a>Atomic</h1><p>atomic所提供的操作将使用默认保证，不论内存访问次序如何。这个默认保证提供了顺序一致性，意思是在线程之中atomic操作保证一定“像代码出现的次序”那样地发生。因此重排语句也不会出现。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">std</span>::atomic&lt;<span class="keyword">bool</span>&gt; <span class="title">ReadyFlag</span><span class="params">(<span class="literal">false</span>)</span></span>;<span class="comment">//应当将其初始化</span></span><br></pre></td></tr></table></figure><br>处理atomic的两个最重要语句是store()和load();</p>
+<ul>
+<li>store()赋予一个新值。</li>
+<li>load()取当前值。</li>
+<li>重点是，这些操作都保证是atomic（不可切割的），所以我们不需要像以前那样，需要mutex的保护才能设置ReadyFlag。</li>
+</ul>
+<p>第一个线程中不再这么写：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    ReadyFlag=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而是简单写成这样：<br>ReadyFlag.store(true);</p>
+<p>第二线程中不再这么写：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">l</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(!ReadyFlag)&#123;</span><br><span class="line">        l.unlock();</span><br><span class="line">        <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::millisecond(<span class="number">100</span>));</span><br><span class="line">        l.lock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而是简单写成这样：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!ReadyFlag.load())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::millisecond(<span class="number">100</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然而，使用condition variable时我们仍然需要mutex才能保护对condition variable的消费：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">ul</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    readyCondVar.wait(ul,[]&#123;<span class="keyword">return</span> ReadyFlag.load();&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于atomic类型，你可以继续使用有用而异常的操作，像是赋值、自动转换为整型、递增、递减等：<br>std::atomic<bool> ab(false);<br>ab=true;</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/01/Linux%E5%86%85%E6%A0%B8%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,7 +629,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-02 12:32:51" itemprop="dateModified" datetime="2020-09-02T12:32:51+08:00">2020-09-02</time>
+                <time title="修改时间：2020-09-11 15:46:39" itemprop="dateModified" datetime="2020-09-11T15:46:39+08:00">2020-09-11</time>
               </span>
 
           
@@ -863,184 +1109,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/OS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="一叶秋秋秋">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一叶秋秋秋的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/OS/" class="post-title-link" itemprop="url">深入理解计算机系统</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-20 00:16:38" itemprop="dateCreated datePublished" datetime="2020-08-20T00:16:38+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-04 11:07:30" itemprop="dateModified" datetime="2020-09-04T11:07:30+08:00">2020-09-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/08/20/OS/" class="post-meta-item leancloud_visitors" data-flag-title="深入理解计算机系统" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="程序的机器级表示"><a href="#程序的机器级表示" class="headerlink" title="程序的机器级表示"></a>程序的机器级表示</h1><p>GCC语言编译器以汇编代码的形式产生输出，汇编代码给出程序中的<strong>每一条指令</strong>，然后GCC调用编译器和连接器，根据汇编代码生成可执行的机器代码。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/20/OS/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/08/20/CS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="一叶秋秋秋">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一叶秋秋秋的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/CS/" class="post-title-link" itemprop="url">CS</a>
-        </h2>
-
-        <div class="post-meta">
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-20 00:16:38" itemprop="dateCreated datePublished" datetime="2020-08-20T00:16:38+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-22 12:57:03" itemprop="dateModified" datetime="2020-08-22T12:57:03+08:00">2020-08-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/08/20/CS/" class="post-meta-item leancloud_visitors" data-flag-title="CS" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="冯-诺依曼模型"><a href="#冯-诺依曼模型" class="headerlink" title="冯.诺依曼模型"></a>冯.诺依曼模型</h1><p>一个和寻址空间相关联的概念是我们平时说的32位、64位系统，这里的32和64指的是有$2^{32}$和$2^{64}$个地址（位置）范围。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/20/CS/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1111,7 +1179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1299,59 +1367,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

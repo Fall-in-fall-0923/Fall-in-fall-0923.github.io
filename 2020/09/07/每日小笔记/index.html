@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/me.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/me.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。 多线程是不是临界区越小越好，临界区不要涉及太多的函数调用 mutex互斥量是一个类对象，把它理解为一把锁。std::lock_guard类模板代替lock()和unlock()。 std::async()提供一个接口，能让一段技能或者说一个callable object若是可能的话在后台运行，成为一个独立线程。 C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日小笔记">
+<meta property="og:url" content="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="一叶秋秋秋的博客">
+<meta property="og:description" content="前言记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。 多线程是不是临界区越小越好，临界区不要涉及太多的函数调用 mutex互斥量是一个类对象，把它理解为一把锁。std::lock_guard类模板代替lock()和unlock()。 std::async()提供一个接口，能让一段技能或者说一个callable object若是可能的话在后台运行，成为一个独立线程。 C">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-07T05:59:40.000Z">
+<meta property="article:modified_time" content="2020-09-10T03:07:38.947Z">
+<meta property="article:author" content="一叶秋秋秋">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>每日小笔记 | 一叶秋秋秋的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一叶秋秋秋的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-操作系统">
+
+    <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" rel="section"><i class="fa fa-calendar fa-fw"></i>操作系统</a>
+
+  </li>
+        <li class="menu-item menu-item-c++">
+
+    <a href="/categories/Cpp" rel="section"><i class="fa fa-book fa-fw"></i>C++</a>
+
+  </li>
+        <li class="menu-item menu-item-数据结构与算法">
+
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95" rel="section"><i class="fa fa-sitemap fa-fw"></i>数据结构与算法</a>
+
+  </li>
+        <li class="menu-item menu-item-linux">
+
+    <a href="/categories/Linux" rel="section"><i class="fa fa-server fa-fw"></i>Linux</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="一叶秋秋秋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶秋秋秋的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          每日小笔记
+        </h1>
+
+        <div class="post-meta">
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-07 13:59:40" itemprop="dateCreated datePublished" datetime="2020-09-07T13:59:40+08:00">2020-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-10 11:07:38" itemprop="dateModified" datetime="2020-09-10T11:07:38+08:00">2020-09-10</time>
+              </span>
+
+          
+            <span id="/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="每日小笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>是不是临界区越小越好，临界区不要涉及太多的函数调用</p>
+<p>mutex互斥量是一个类对象，把它理解为一把锁。<br>std::lock_guard类模板代替lock()和unlock()。</p>
+<p>std::async()提供一个接口，能让一段技能或者说一个callable object若是可能的话在后台运行，成为一个独立线程。</p>
+<p>Class future&lt;&gt;允许你等待线程结束并获取其结果。</p>
+<p>多个线程并发处理相同的数据而又不曾同步化，那么唯一安全的情况就是：所有线程只读取数据。</p>
+<p>并发过程中会出现什么样的问题：</p>
+<ul>
+<li><strong>（未同步化数据访问）</strong>：并行运行的两个线程读和写同一笔数据，不知道哪一个语句先来。</li>
+<li><strong>（写至半途的数据）</strong>：某个线程正在读数据，另一个线程改动它，于是读取中的线程甚至可能读到改了一半的数据，读到一个半新半旧的旧值。</li>
+<li><strong>（重新安排的语句）</strong>：语句和操作有可能被重新安排次序，也许对于每一个单线程正确，但对于多个线程的组合却破坏了预期的行为。</li>
+</ul>
+<p>**除非另有说明，C++标准库提供的函数通常不支持“写或读”动作与另一个“写”动作（写至同一笔数据）并发执行。</p>
+<p>并发问题中，对数据的修改是很敏感的。<br><strong>重新安排语句的前提是，如果是在单线程下，不影响该线程的行为。</strong><br>默认情况下，C++编译器应该有能力生成高度优化代码，而某些优化行为需要重新安排语句。</p>
+<p>解决问题所需要的性质：<br><strong>Atomicity（不可切割性）</strong>：其行为是独占的，排他的，无任何打断。<br><strong>Order（次序）</strong>：需要一些方法保证”具体指定语句“的次序。</p>
+<ul>
+<li>你可以使用condition variable有效地令某线程等待若干”被另一线程控制的“判断式称为true。这有助于应付多线程间的次序，允许一或多个线程处理其他一或多个线程所提供的数据或状态。</li>
+<li>可以使用atomic data type确保每次对变量或对象的访问动作都是不可切割的——只要atomic type上的操作次序保证稳定。</li>
+</ul>
+<p><strong>递归Lock</strong>，借着recursive_mutex，这个mutex允许同一线程多次锁定，并在最近一次（last)相应的unlock()时释放lock。——调用会不会重新占用锁。<br><strong>尝试性的Lock以及带时间性的Lock</strong><br>try_lock()==false;<br><strong>处理多个Lock</strong><br>全局函数std::lock()会锁住它收到的所有mutex，而且<strong>阻塞直到</strong>所有mutex都被锁定或者抛出异常，如果是后者，已被锁的会被解锁。使用lock_guard时，并以adopt_lock作为初始化的第二实参，确保任何情况下这些mutex在离开作用域时会被解锁。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::mutex m2;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">std</span>::lock(mi,m2);<span class="comment">//先阻塞到获得锁</span></span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(m1,<span class="built_in">std</span>::adopt)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(m2,<span class="built_in">std</span>::adopt)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以此相同方式你可以尝试”取得多个lock“且”若并非所有lock都可用也不至于造成阻塞“。全局函数std::try_lock()会在取得所有lock情况下返回-1；否则返回第一个失败的lock的索引，且如果这样的话所有成功的lock会又被unlocked。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::mutex m2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> idx=<span class="built_in">std</span>::try_lock(m1,m2);</span><br><span class="line"><span class="keyword">if</span>(index&lt;<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockm1</span><span class="params">(m1,<span class="built_in">std</span>::adopt_lock)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lockm2</span> <span class="params">(m2,<span class="built_in">std</span>::adopt_lock)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>std::lock()和std::try_lock()要与lock_guard\<std::mutex\> lg(m1,std::adopt_lock)一起使用。</p>
+<p>还提供class unique_lock&lt;&gt;，它对付mutex更有弹性。它又允许明确写出”何时“以及”如何“锁定或者解锁mutex.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defer_lock</td>
+<td>不获得互斥的所有权</td>
+</tr>
+<tr>
+<td>try_to_lock</td>
+<td>尝试获得互斥的所有权而不阻塞</td>
+</tr>
+<tr>
+<td>adopt_lock</td>
+<td>假设调用方线程已拥有互斥的所有权</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>此外，class unique_lock&lt;&gt;提供release()用来释放mutex，或是将其mutex拥有权转移给另一个lock。</p>
+<p>对于”某一满足条件“的轮询通常不是好办法。更好的做法是使用condition variable（条件变量）。</p>
+<p>C++标准库提供一下mutex Class：</p>
+<ul>
+<li><strong>Class std::mutex</strong>,同一时间只可被一个线程锁定。如果它被锁定，任何其他lock()都会阻塞，直到这个mutex再次可用，且try_lock()会失败。</li>
+<li><strong>Class std::recursive_mutex</strong>，允许在同一时间多次被同一线程获得其lock。其典型应用是：函数捕获一个lock并调用另一函数而后者再次捕获相同的lock。</li>
+<li><strong>Class std::timed_mutex</strong> 额外允许你传递一个时间段或时间点，用来定义多长时间内它可以尝试捕捉一个lock。为此它提供了try_lock_for()和try_lock_until();</li>
+<li><strong>Class std::recursive_timed_mutex</strong></li>
+</ul>
+<h1 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h1><p>Future允许你停下来，直到另一个线程提供某笔数据或直到另一线程结束。然而future从某线程传递数据到另一线程只能一次。事实上future的主要目的是处理线程的返回值或异常。<br><strong>条件变量</strong>它可用来同步化线程之间的数据流逻辑依赖关系。它是个变量，借由他，一个线程可以唤醒一或多个其他等待中的线程。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.notify_one()</span><br><span class="line">.notify_all()</span><br><span class="line">.wait(mutex);</span><br><span class="line"><span class="comment">//condition variable的消费者总是在”被锁住的mutex“基础上操作。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::mutex m1;</span><br><span class="line"><span class="built_in">std</span>::condition_variable cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">ul</span><span class="params">(m1)</span></span>;</span><br><span class="line">cv.wait(ul,[]&#123;<span class="keyword">return</span> doflag;&#125;);  <span class="comment">//lambda表达式防止假醒</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Atomic"><a href="#Atomic" class="headerlink" title="Atomic"></a>Atomic</h1><p>atomic所提供的操作将使用默认保证，不论内存访问次序如何。这个默认保证提供了顺序一致性，意思是在线程之中atomic操作保证一定“像代码出现的次序”那样地发生。因此重排语句也不会出现。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">std</span>::atomic&lt;<span class="keyword">bool</span>&gt; <span class="title">ReadyFlag</span><span class="params">(<span class="literal">false</span>)</span></span>;<span class="comment">//应当将其初始化</span></span><br></pre></td></tr></table></figure><br>处理atomic的两个最重要语句是store()和load();</p>
+<ul>
+<li>store()赋予一个新值。</li>
+<li>load()取当前值。</li>
+<li>重点是，这些操作都保证是atomic（不可切割的），所以我们不需要像以前那样，需要mutex的保护才能设置ReadyFlag。</li>
+</ul>
+<p>第一个线程中不再这么写：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lg</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    ReadyFlag=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而是简单写成这样：<br>ReadyFlag.store(true);</p>
+<p>第二线程中不再这么写：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">l</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(!ReadyFlag)&#123;</span><br><span class="line">        l.unlock();</span><br><span class="line">        <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::millisecond(<span class="number">100</span>));</span><br><span class="line">        l.lock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而是简单写成这样：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!ReadyFlag.load())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::millisecond(<span class="number">100</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然而，使用condition variable时我们仍然需要mutex才能保护对condition variable的消费：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">ul</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    readyCondVar.wait(ul,[]&#123;<span class="keyword">return</span> ReadyFlag.load();&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于atomic类型，你可以继续使用有用而异常的操作，像是赋值、自动转换为整型、递增、递减等：<br>std::atomic<bool> ab(false);<br>ab=true;</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-bars"></i> 记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/01/Linux%E5%86%85%E6%A0%B8%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="prev" title="Linux内核设计与实现">
+      <i class="fa fa-chevron-left"></i> Linux内核设计与实现
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/10/%E7%A7%8B%E4%BD%A0%E8%A6%81%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95%E5%91%80/" rel="next" title="秋你要准备面试呀">
+      秋你要准备面试呀 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">多线程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">条件变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Atomic"><span class="nav-number">3.</span> <span class="nav-text">Atomic</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="一叶秋秋秋"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">一叶秋秋秋</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:124264156@qq.com" title="E-Mail → mailto:124264156@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一叶秋秋秋</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> | <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":null,"app_key":null,"server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
