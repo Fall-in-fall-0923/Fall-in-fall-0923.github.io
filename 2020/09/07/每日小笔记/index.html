@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。">
+  <meta name="description" content="前言一叶知秋，岁月悠悠……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日小笔记">
 <meta property="og:url" content="https://github.com/Fall-in-fall-0923/Fall-in-fall-0923.github.io.git/2020/09/07/%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="一叶秋秋秋的博客">
-<meta property="og:description" content="前言记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。">
+<meta property="og:description" content="前言一叶知秋，岁月悠悠……">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-07T05:59:40.000Z">
-<meta property="article:modified_time" content="2020-09-16T07:42:54.060Z">
+<meta property="article:modified_time" content="2020-09-22T07:57:13.412Z">
 <meta property="article:author" content="一叶秋秋秋">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-16 15:42:54" itemprop="dateModified" datetime="2020-09-16T15:42:54+08:00">2020-09-16</time>
+                <time title="修改时间：2020-09-22 15:57:13" itemprop="dateModified" datetime="2020-09-22T15:57:13+08:00">2020-09-22</time>
               </span>
 
           
@@ -240,7 +240,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录每天看到的，需要记在脑子里的信息。每天回顾一次，一星期为一个节点进行回顾。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一叶知秋，岁月悠悠……</p>
 <a id="more"></a>
 <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>是不是临界区越小越好，临界区不要涉及太多的函数调用</p>
 <p>mutex互斥量是一个类对象，把它理解为一把锁。<br>std::lock_guard类模板代替lock()和unlock()。</p>
@@ -311,6 +311,8 @@
 <p>然而，使用condition variable时我们仍然需要mutex才能保护对condition variable的消费：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">ul</span><span class="params">(ReadyMutex)</span></span>;</span><br><span class="line">    readyCondVar.wait(ul,[]&#123;<span class="keyword">return</span> ReadyFlag.load();&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于atomic类型，你可以继续使用有用而异常的操作，像是赋值、自动转换为整型、递增、递减等：<br>std::atomic<bool> ab(false);<br>ab=true;</p>
+ <font color=#FF000 >**红色**</font>
+
 
     </div>
 
